@@ -1,0 +1,41 @@
+package folder
+{
+	import flash.display.MovieClip;
+	import flash.events.MouseEvent;
+	import flash.events.Event;	
+	
+	public class Drag extends MovieClip
+	{
+	
+		public function Drag():void
+		{
+			addEventListener(MouseEvent.MOUSE_DOWN, mouseDown);
+			addEventListener(MouseEvent.RELEASE_OUTSIDE, onMouseReleaseOutside);
+		}
+		
+		protected function mouseDown(e:Event):void
+		{
+			startDrag();
+			stage.addEventListener(MouseEvent.MOUSE_UP,mouseUp); //listen for mouse up on the stage, in case the finger/mouse moved off of the button accidentally when they release.
+			addEventListener(Event.ENTER_FRAME,tick); //while the mouse is down, run the tick function once every frame as per the project frame rate
+		}
+
+		protected function mouseUp(e:Event):void 
+		{
+			removeEventListener(Event.ENTER_FRAME,tick);  //stop running the tick function every frame now that the mouse is up
+			stage.removeEventListener(MouseEvent.MOUSE_UP,mouseUp); //remove the listener for mouse up
+			stopDrag();
+		}
+
+		protected function tick(e:Event):void 
+		{
+			// do something while this obj is dragging.
+			
+		}
+		function onMouseReleaseOutside(e:Event):void 
+		{
+			stopDrag();
+		}
+	}
+	
+}
