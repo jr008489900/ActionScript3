@@ -10,7 +10,6 @@ package folder
 		public function Drag():void
 		{
 			addEventListener(MouseEvent.MOUSE_DOWN, mouseDown);
-			addEventListener(MouseEvent.RELEASE_OUTSIDE, onMouseReleaseOutside);
 		}
 		
 		protected function mouseDown(e:Event):void
@@ -32,10 +31,7 @@ package folder
 			// do something while this obj is dragging.
 			
 		}
-		function onMouseReleaseOutside(e:Event):void 
-		{
-			stopDrag();
-		}
+
 	}
 	
 }
