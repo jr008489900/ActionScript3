@@ -1,0 +1,39 @@
+
+import folder.Dot;
+
+Main();
+
+function Main():void
+{
+	//動態生成物件，並將該物件套在該層物件之下。
+	for(var i:int =0;i<10;i++)
+	{
+		var dot:Dot = new Dot("dot"+i,(i+1)*50,100);
+		addChild(dot);
+	}
+	
+	//存取動態生成後的物件
+	
+	for(i=0;i<10;i++)
+	{
+		getChildByName("dot"+i).width=25;
+	}
+}
+
+____________________________________________________
+
+package folder {
+	
+	import flash.display.SimpleButton;
+	
+	public class Dot extends SimpleButton {
+		
+		public function Dot(_name:String,_x:int,_y:int) {
+			// constructor code
+			name=_name;
+			x=_x;
+			y=_y;
+		}
+	}
+	
+}
