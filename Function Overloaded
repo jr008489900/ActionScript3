@@ -1,0 +1,22 @@
+由於AS3 不支援function Overloaded 但是有下列近似做法:
+
+package folder {
+	import flash.display.MovieClip;
+	
+	public class Square extends MovieClip {
+		
+    /*利用... 代表function剩餘參數，之後再判斷該參數有幾項*/
+		public function Square(...args) {
+			// constructor code
+			if(args.lenth==0)
+			{
+				//do something
+			}
+			else if(args.lenth==1)
+			{
+				//do something
+			}
+			
+		}
+	}
+}
